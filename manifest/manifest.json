@@ -1,0 +1,51 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.10/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.10",
+  "id": "random guid",
+  "version": "1.0.0",
+  "packageName": "This Teams App name",
+  "developer": {
+    "name": "developer name",
+    "websiteUrl": "your website url",
+    "privacyUrl": "your privacy url page",
+    "termsOfUseUrl": "your terms Of Use Url"
+  },
+  "name": {
+    "short": "App name",
+    "full": "Full app name"
+  },
+  "description": {
+    "short": "short description",
+    "full": "full description"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "bots": [
+    {
+      "botId": "MicrosoftAppId",
+      "scopes": [
+        "team",
+        "personal",
+        "groupchat"
+      ],
+      "isNotificationOnly": false
+    }
+  ],
+  "accentColor": "#603e9c",
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "*.azurewebsites.net",
+    "token.botframework.com"
+  ],
+  "webApplicationInfo": {
+    "id": "MicrosoftAppId",
+    "applicationPermissions": [
+      "ChannelMessage.Read.Group"
+    ]
+  }
+}

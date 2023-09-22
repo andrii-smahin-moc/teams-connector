@@ -4,6 +4,7 @@ import {
   ConfigurationBotFrameworkAuthentication,
   ConfigurationBotFrameworkAuthenticationOptions,
   ConversationParameters,
+  ConversationReference,
   ConversationState,
   MemoryStorage,
   Mention,
@@ -56,7 +57,7 @@ expressApp.post("/api/messages", async (req, res) => {
   });
 });
 
-expressApp.get("/notify", async (req, res) => {
+expressApp.get("/create", async (req, res) => {
   const mention = {
     mentioned: {
       id: "userTeamsId",
@@ -95,6 +96,28 @@ expressApp.get("/notify", async (req, res) => {
   res.send(
     "<html><body><h1>Proactive messages have been sent.</h1></body></html>"
   );
+});
+
+expressApp.get("/continue", async (req, res) => {
+  const conversationReference = {
+    channelId: "msteams",
+    serviceUrl: "https://smba.trafficmanager.net/emea/",
+    conversation: {
+      isGroup: true,
+      conversationType: "channel",
+      id: "conversationId",
+    },
+  } as Partial<ConversationReference>;
+  await adapter.continueConversationAsync(
+    "MicrosoftAppId",
+    conversationReference,
+    async (context) => {
+      await context.sendActivity(
+        `send message to thread${new Date().toISOString()}`
+      );
+    }
+  );
+  res.send();
 });
 
 // Start the webserver

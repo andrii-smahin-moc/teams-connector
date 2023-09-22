@@ -24,5 +24,6 @@
 - open ./src/index.ts
 - replace **MicrosoftAppId** and **MicrosoftAppPassword**
 - replace **userTeamsId** and **userTeamsName** (write smth ti chat, bot will catch it and using debugger save this data from **"context.activity.from"**)
+- replace **conversationId** from **"context.activity.conversation.id"**
 - -replace **channelId** from **"context.activity"** or from teams url
-  (teams.microsoft.com/\_?culture=en&country=ua#/conversations/**channel-name**?threadId=**channelId**&ctx=channel)
+  teams.microsoft.com/\_?culture=en&country=ua#/conversations/**channel-name**?threadId=**channelId**&ctx=channel
